@@ -1,5 +1,6 @@
 import { Products } from '../interfaces/product.interface';
 import fs from 'fs/promises';
+import { Product } from '../models/product.model';
 
 export class ProductService {
     public static async getAllProducts(minPrice?: number,maxPrice?: number,minStock?: number,maxStock?: number): Promise<Products[]> {
@@ -11,20 +12,51 @@ export class ProductService {
             const price = product.price;
             const stock = product.rating.count;
 
-            let isValid = true;
-
             if (minPrice != null && price < minPrice) {
-                isValid = false;
-            }if (maxPrice != null && price > maxPrice) {
-                isValid = false;
-            }if (minStock != null && stock < minStock) {
-                isValid = false;
-            }if (maxStock != null && stock > maxStock) {
-                isValid = false;
-            }if (isValid) {
+                
+            }else if (maxPrice != null && price > maxPrice) {
+                
+            }else if (minStock != null && stock < minStock) {
+                
+            }else if (maxStock != null && stock > maxStock) {
+                
+            }else{
                 filteredProducts.push(product);
             }
         }
         return filteredProducts;
+    }
+
+    public static async postProduct(product: Product): Promise<Products[]> {
+        const data = await fs.readFile('./src/data/products.json', 'utf-8');
+        const products = JSON.parse(data);
+        const lastProduct = products[products.length-1];
+        product.id = lastProduct.id+1
+        products.push(product)
+        fs.writeFile('./src/data/products.json', JSON.stringify(products, null, 2))
+        return products;
+    }
+
+    public static async putProduct(id: number, title:string,price:number,description:string,count:number): Promise<Products[]> {
+        const data = await fs.readFile('./src/data/products.json', 'utf-8');
+        const products = JSON.parse(data);
+        const editedProduct = products[id-1];
+        editedProduct.title = title;
+        editedProduct.price = price;
+        editedProduct.description = description;
+        editedProduct.rating.count = count;
+        products.push(editedProduct)
+        fs.writeFile('./src/data/products.json', JSON.stringify(products, null, 2))
+        return products;
+    }
+
+    public static async deleteProduct(id: number): Promise<Products[]> {
+        const data = await fs.readFile('./src/data/products.json', 'utf-8');
+        const products = JSON.parse(data);
+
+        products.splice(id-1, 1);
+
+        fs.writeFile('./src/data/products.json', JSON.stringify(products, null, 2))
+        return products;
     }
 }
