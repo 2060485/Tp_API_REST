@@ -9,6 +9,8 @@ import https from 'https';
 import { loadCertificate } from './middlewares/certificat.middleware';
 import { config } from './config/config';
 import session from 'express-session';
+import fs from 'fs';
+import path from 'path';
 
 const app = express();
 // Middleware de parsing du JSON
@@ -55,6 +57,10 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/auth', authRoutes); // This line should be added
+
+fetch('https://fakestoreapi.com/products')
+            .then(res=>res.json())
+            .then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
 
 
 app.use(errorMiddleware);
