@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { ProductController } from '../controllers/product.controller';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { User } from '../interfaces/user.interface';
+import { JWT_SECRET } from '../utils/jwt.util';
 
 const router = Router();
 
@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     const user = users.find(user => user.username === req.body.username);
     if (user && await bcrypt.compare(req.body.password, user.password)) {
-        const accessToken = jwt.sign({ username: user.username }, 'SECRET_KEY', 
+        const accessToken = jwt.sign({ username: user.username }, JWT_SECRET, 
             { expiresIn: '1h' }
         );
         res.json({ accessToken });

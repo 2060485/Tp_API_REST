@@ -40,22 +40,15 @@ export class ProductService {
     public static async putProduct(id: number, title:string,price:number,description:string,count:number): Promise<Products[]> {
         const data = await fs.readFile('./src/data/products.json', 'utf-8');
         const products = JSON.parse(data);
+        if (id > products.length) {
+            return products
+        }
         const editedProduct = products[id-1];
         editedProduct.title = title;
         editedProduct.price = price;
         editedProduct.description = description;
         editedProduct.rating.count = count;
         products.push(editedProduct)
-        fs.writeFile('./src/data/products.json', JSON.stringify(products, null, 2))
-        return products;
-    }
-
-    public static async deleteProduct(id: number): Promise<Products[]> {
-        const data = await fs.readFile('./src/data/products.json', 'utf-8');
-        const products = JSON.parse(data);
-
-        products.splice(id-1, 1);
-
         fs.writeFile('./src/data/products.json', JSON.stringify(products, null, 2))
         return products;
     }

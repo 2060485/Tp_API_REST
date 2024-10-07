@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product.model';
+import fs from 'fs/promises';
 
 export class ProductController {
 
@@ -31,26 +32,71 @@ export class ProductController {
                 image: "not set", 
                 rating: {rate: 0,count: req.body.count}
             };
-            const products = await ProductService.postProduct(product);
-            res.json(products);
+
+            const titleRegex = /^.{3,50}$/;
+            const priceRegex = /^(?:0|[1-9]\d*)(?:\.\d+)?$/;
+            const countRegex = /^[1-9]\d*$/; 
+            if (!titleRegex.test(product.title)) {
+                res.status(400).send('Le titre doit contenir entre 3 et 50 caractères');
+            }else if (!priceRegex.test(product.price.toString())) {
+                res.status(400).send('Le prix doit être un nombre positif');
+            }else if (!countRegex.test(product.rating.count.toString())) {
+                res.status(400).send('La quantité doit être un entier positif');
+            }else{
+                const products = await ProductService.postProduct(product);
+                res.status(200)
+                res.json(products);
+            }
         }
     }
 
     public async putProducts(req: Request, res: Response): Promise<void> {
-
+        const data = await fs.readFile('./src/data/products.json', 'utf-8');
+        const productList = JSON.parse(data);
         const id = parseInt(req.params.id);
         const title = req.body.title
         const price = req.body.price
         const description = req.body.description
         const count = req.body.count
-        const products = await ProductService.putProduct(id,title,price,description,count);
-        res.json(products);
+        let found = false
+
+        for (let index = 0; index < productList.length; index++) {
+            const element = productList[index];
+            if (element.id == id) {
+                found = true
+            }
+        }
+        if( id == undefined || title == undefined || price == undefined || description == undefined || count == undefined ){
+            res.status(400).send('Valeurs manquantes')
+        }else if (found) {
+            const products = await ProductService.putProduct(id,title,price,description,count);
+            res.json(products);
+        }else{
+            res.status(404).send('Produit inexistant')
+        }
+        
     }
 
     public async deleteProducts(req: Request, res: Response): Promise<void> {
-
+        const data = await fs.readFile('./src/data/products.json', 'utf-8');
+        const productList = JSON.parse(data);
         const id = parseInt(req.params.id);
-        const products = await ProductService.deleteProduct(id);
-        res.json(products);
+        let found = false
+
+        for (let index = 0; index < productList.length; index++) {
+            const element = productList[index];
+            if (element.id == id) {
+                found = true
+                productList.splice(index, 1);
+                
+            }
+        }
+        if (found) {
+            fs.writeFile('./src/data/products.json', JSON.stringify(productList, null, 2))
+            res.status(204).send()
+        }else{
+            res.status(404).send('Produit inexistant')
+        }
+        
     }
 }
