@@ -54,9 +54,8 @@ app.get('/', (req: Request, res: Response) => {
   res.send('Hello, TypeScript with Express! Connexion sécurisée.');
 });
 
-app.use('/v1/users', userRoutes);
 app.use('/v1/products', productRoutes);
-app.use('/v1/auth', authRoutes);
+app.use('/v1/users', authRoutes);
 
 fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())

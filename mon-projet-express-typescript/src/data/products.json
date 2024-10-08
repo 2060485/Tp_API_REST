@@ -238,5 +238,17 @@
       "rate": 3.6,
       "count": 145
     }
+  },
+  {
+    "id": 21,
+    "title": "Sample Product",
+    "price": 19.99,
+    "description": "This is a great product.",
+    "category": "not set",
+    "image": "not set",
+    "rating": {
+      "rate": 0,
+      "count": 10
+    }
   }
 ]

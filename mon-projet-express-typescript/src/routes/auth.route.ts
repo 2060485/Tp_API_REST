@@ -8,6 +8,76 @@ const router = Router();
 
 const users: User[] = []; // Simuler une base de données en mémoire
 
+/**
+ * @swagger
+ * /v1/users/register:
+ *   post:
+ *     summary: Register a new user
+ *     description: This endpoint allows a user to register with a username, email, and password.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: integer
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *             required:
+ *               - id
+ *               - name
+ *               - email
+ *               - username
+ *               - password
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *       400:
+ *         description: Invalid input
+ */
+
+/**
+ * @swagger
+ * /v1/users/login:
+ *   post:
+ *     summary: Log in a user
+ *     description: This endpoint allows a user to log in with a username and password.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *             required:
+ *               - username
+ *               - password
+ *     responses:
+ *       200:
+ *         description: Successful login
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 accessToken:
+ *                   type: string
+ *       403:
+ *         description: Invalid username or password
+ */
+
 router.post('/register', async (req, res) => {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user: User = { 
