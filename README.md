@@ -51,6 +51,8 @@ DATABASE_URL=postgres://user:password@localhost:5432/dbname
 Voici la structure des dossiers du projet :
 
 ```
+├── certs                   # Clés permettant une connexion HTTPS
+├── logs                    # Logs des opérations /GET /POST /PUT /DELETE
 ├── src/
 │   ├── controllers/        # Contrôleurs Express pour gérer les routes
 │   ├── interfaces/         # Interfaces TypeScript
