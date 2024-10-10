@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { User } from '../interfaces/user.interface';
 import { JWT_SECRET } from '../utils/jwt.util';
+import { logger } from '../utils/logger';
 
 const router = Router();
 
@@ -89,6 +90,7 @@ router.post('/register', async (req, res) => {
     };
     users.push(user);
     res.status(201).send('Utilisateur enregistré');
+    logger.info('POST /v1/users/register - Utilisateur enregistré');
 });
 
 router.post('/login', async (req, res) => {
@@ -98,8 +100,10 @@ router.post('/login', async (req, res) => {
             { expiresIn: '1h' }
         );
         res.json({ accessToken });
+        logger.info('POST /v1/users/login - Connexin réussie');
     } else {
         res.status(403).send('Nom d’utilisateur ou mot de passe incorrect');
+        logger.info('POST /v1/users/login - Information incorrecte');
     }
 });
 
