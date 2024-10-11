@@ -63,6 +63,7 @@ Voici la structure des dossiers du projet :
 │   ├── utils/              # Utilitaires du projet
 │   ├── app.ts              # Configuration de l'application Express
 │   ├── server.ts           # Point d'entrée pour démarrer le serveur
+├── .env                    # Fichier contenant les configurations de l’API, sans les données sensibles.
 ├── package.json            # Fichier de configuration des dépendances et scripts
 ├── tsconfig.json           # Configuration de TypeScript
 ```
