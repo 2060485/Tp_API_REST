@@ -33,7 +33,7 @@ Créez un fichier `.env` à la racine du projet pour stocker les variables d'env
 
 ```bash
 PORT=3000
-DATABASE_URL=postgres://user:password@localhost:5432/dbname
+JWT_SECRET=votre_secret_jwt
 ```
 
 ## Scripts disponibles
