@@ -64,8 +64,7 @@ fetch('https://fakestoreapi.com/products')
 
 app.use(errorMiddleware);
 
-
-server = http.createServer(app);
+const httpApp = http.createServer(app);
 //server = https.createServer(certificatOptions, app);
 
  
