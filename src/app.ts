@@ -67,10 +67,6 @@ app.use(errorMiddleware);
 const httpApp = https.createServer(app);
 //server = https.createServer(certificatOptions, app);
 
- 
-server.listen(config.port, () => {
-  console.log(`Server is running in ${config.nodeEnv} mode on port ${config.port}`);
-});
 
 export default httpApp;
 
