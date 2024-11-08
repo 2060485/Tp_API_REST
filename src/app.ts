@@ -64,7 +64,15 @@ fetch('https://fakestoreapi.com/products')
 
 app.use(errorMiddleware);
 
-
+if (config.nodeEnv === 'development') {
+  server = http.createServer(app);
+} else {
+  server = https.createServer(certificatOptions, app);
+}
+ 
+server.listen(config.port, () => {
+  console.log(`Server is running in ${config.nodeEnv} mode on port ${config.port}`);
+});
 
 export default httpApp;
 
