@@ -64,6 +64,7 @@ fetch('https://fakestoreapi.com/products')
 
 app.use(errorMiddleware);
 
+let server;
 if (config.nodeEnv === 'development') {
   server = http.createServer(app);
 } else {
