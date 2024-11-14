@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express';
-import userRoutes from './routes/user.route';
 import authRoutes from './routes/auth.route'
 import productRoutes from './routes/product.route';
 import { errorMiddleware } from './middlewares/error.middleware';
@@ -10,7 +9,6 @@ import { loadCertificate } from './middlewares/certificat.middleware';
 import { config } from './config/config';
 import session from 'express-session';
 import fs from 'fs';
-import path from 'path';
 
 const app = express();
 // Middleware de parsing du JSON
@@ -61,6 +59,9 @@ fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
             .then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
 
+const mongoose = require('mongoose');
+
+const uri = 'mongodb+srv://username:password@tp.ek83z.mongodb.net/'+config.nodeEnv;
 
 app.use(errorMiddleware);
 
