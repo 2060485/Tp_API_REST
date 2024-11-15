@@ -27,6 +27,8 @@ const productSchema = new Schema({
     required: true,
     min: 0
   }
+}, {
+  versionKey: false
 });
 
 const Product = mongoose.model('Product', productSchema);

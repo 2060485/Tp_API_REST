@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import authRoutes from './routes/auth.route'
 import productRoutes from './routes/product.route';
+import productRoutesV2 from './routes/product_V2.route';
 import { errorMiddleware } from './middlewares/error.middleware';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
@@ -9,7 +10,6 @@ import { loadCertificate } from './middlewares/certificat.middleware';
 import { config } from './config/config';
 import session from 'express-session';
 import fs from 'fs';
-import Product from './models/product_V2.model';
 import mongoose from 'mongoose';
 
 
@@ -57,6 +57,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/v1/products', productRoutes);
+app.use('/v2/products', productRoutesV2);
 app.use('/v1/users', authRoutes);
 
 fetch('https://fakestoreapi.com/products')
@@ -71,10 +72,6 @@ try{
 }catch{
   console.log('Connexion à MongoDB échouer');
 }
-            
-Product.find().then((products: any[]) => {
-  console.log('Liste des produits :', products);
-})
 
 app.use(errorMiddleware);
 
