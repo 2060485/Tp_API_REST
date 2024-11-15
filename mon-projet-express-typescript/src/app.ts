@@ -9,6 +9,10 @@ import { loadCertificate } from './middlewares/certificat.middleware';
 import { config } from './config/config';
 import session from 'express-session';
 import fs from 'fs';
+import Product from './models/product_V2.model';
+import mongoose from 'mongoose';
+
+
 
 const app = express();
 // Middleware de parsing du JSON
@@ -56,12 +60,21 @@ app.use('/v1/products', productRoutes);
 app.use('/v1/users', authRoutes);
 
 fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
+.then(res=>res.json())
+.then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
 
-const mongoose = require('mongoose');
+const uri = `mongodb+srv://420-514_A24:Str0ng_P%40ssw0rd_420-514@tp.ek83z.mongodb.net/${config.nodeEnv}`;            
 
-const uri = 'mongodb+srv://username:password@tp.ek83z.mongodb.net/'+config.nodeEnv;
+try{
+  mongoose.connect(uri)
+  console.log('Connexion à MongoDB réussie');
+}catch{
+  console.log('Connexion à MongoDB échouer');
+}
+            
+Product.find().then((products: any[]) => {
+  console.log('Liste des produits :', products);
+})
 
 app.use(errorMiddleware);
 
