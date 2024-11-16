@@ -3,21 +3,21 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - dev        # Déclenche le pipeline sur un push vers la branche principale
+      - main
   pull_request:
     branches:
-      - main        # Déclenche le pipeline sur une PR vers la branche principale
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest   # Utiliser un environnement Ubuntu
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]  # Version de Node.js à utiliser, ajustez selon vos besoins
+        node-version: [20.18.0]
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Checkout du code de votre repository
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -32,4 +32,4 @@ jobs:
         run: |
           npm test
         env:
-          NODE_TLS_REJECT_UNAUTHORIZED: '0'  # Pour éviter des erreurs liées au certificat TLS
+          NODE_TLS_REJECT_UNAUTHORIZED: '0'
