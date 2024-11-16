@@ -74,7 +74,7 @@ try{
 
 app.use(errorMiddleware);
 
-const httpApp = https.createServer(certificatOptions, app);
+const httpApp = config.testPerformance? http.createServer(app):https.createServer(certificatOptions, app);
 
 
 export default httpApp;

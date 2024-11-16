@@ -9,4 +9,5 @@ export const config = {
   jwtSecret: process.env.JWT_SECRET || 'secret_par_defaut_pour_le_jwt',
   nodeEnv: process.env.NODE_ENV || 'test',
   isProduction: process.env.NODE_ENV === 'production',
+  testPerformance : process.env.PERF || 'false',
 };

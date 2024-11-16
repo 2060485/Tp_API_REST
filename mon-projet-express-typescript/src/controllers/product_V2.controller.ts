@@ -46,7 +46,7 @@ export class ProductController {
                 logger.info('POST /v1/products - Quantité invalide');
             }else{
                 const products = await ProductService.postProduct(newProduct);
-                res.status(200)
+                res.status(201)
                 res.json(products);
                 logger.info('POST /v1/products - postProduct');
             }

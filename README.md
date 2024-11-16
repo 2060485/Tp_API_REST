@@ -80,3 +80,16 @@ Voici la structure des dossiers du projet :
 ## Tests
 
 Pour exécuter les tests avec Postman, ouvrez l'application Postman et importer un nouvelle collection avec le fichier `TestsAPI.postman_collection.json` situé dans le dossier `tests/`.
+
+V2 : 
+   ```bash
+      npm run start
+   ```
+
+Puisque je n'ai pas réussi à faire les tests avec artillery avec https, il faut modifier .en afin d'y ajouter:
+
+```bash
+PERF=true
+```
+
+Ensuite, lancer le serveur avec npm start et lancer les tests de performance avec npx artillery run ./tests/test-load.yaml
