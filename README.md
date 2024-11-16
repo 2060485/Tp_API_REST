@@ -99,4 +99,3 @@ Ensuite, lancer le serveur avec npm start et lancer les tests de performance ave
 
 ```bash
 npx artillery run ./tests/test-load.yaml
-```

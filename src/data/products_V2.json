@@ -1,0 +1,143 @@
+[
+    {
+      "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday.",
+      "category": "men's clothing",
+      "quantity": 120,
+      "price": 109.95
+    },
+    {
+      "name": "Mens Casual Premium Slim Fit T-Shirts",
+      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing.",
+      "category": "men's clothing",
+      "quantity": 259,
+      "price": 22.3
+    },
+    {
+      "name": "Mens Cotton Jacket",
+      "description": "Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions. A warm hearted love to Father, husband or son.",
+      "category": "men's clothing",
+      "quantity": 500,
+      "price": 55.99
+    },
+    {
+      "name": "Mens Casual Slim Fit",
+      "description": "The color could be slightly different between on the screen and in practice. Please note that body builds vary by person.",
+      "category": "men's clothing",
+      "quantity": 430,
+      "price": 15.99
+    },
+    {
+      "name": "John Hardy Women's Legends Naga Gold & Silver Bracelet",
+      "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl.",
+      "category": "jewelery",
+      "quantity": 400,
+      "price": 695
+    },
+    {
+      "name": "Solid Gold Petite Micropave",
+      "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days. Designed and sold by Hafeez Center in the United States.",
+      "category": "jewelery",
+      "quantity": 70,
+      "price": 168
+    },
+    {
+      "name": "White Gold Plated Princess",
+      "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary.",
+      "category": "jewelery",
+      "quantity": 400,
+      "price": 9.99
+    },
+    {
+      "name": "Pierced Owl Rose Gold Plated Double Earrings",
+      "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel.",
+      "category": "jewelery",
+      "quantity": 100,
+      "price": 10.99
+    },
+    {
+      "name": "WD 2TB Elements Portable Hard Drive",
+      "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Formatted NTFS for Windows 10, Windows 8.1, Windows 7.",
+      "category": "electronics",
+      "quantity": 203,
+      "price": 64
+    },
+    {
+      "name": "SanDisk SSD PLUS 1TB Internal SSD",
+      "description": "Easy upgrade for faster boot up, shutdown, application load and response. Boosts burst write performance, making it ideal for typical PC workloads.",
+      "category": "electronics",
+      "quantity": 470,
+      "price": 109
+    },
+    {
+      "name": "Silicon Power 256GB SSD 3D NAND A55",
+      "description": "3D NAND flash are applied to deliver high transfer speeds. The advanced SLC Cache Technology allows performance boost and longer lifespan.",
+      "category": "electronics",
+      "quantity": 319,
+      "price": 109
+    },
+    {
+      "name": "WD 4TB Gaming Drive for Playstation 4",
+      "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy setup. Sleek design with high capacity, 3-year manufacturer's limited warranty.",
+      "category": "electronics",
+      "quantity": 400,
+      "price": 114
+    },
+    {
+      "name": "Acer SB220Q 21.5 inches Full HD Monitor",
+      "description": "21.5 inches Full HD IPS display with Radeon Free Sync technology. Zero-frame design, ultra-thin, with 4ms response time.",
+      "category": "electronics",
+      "quantity": 250,
+      "price": 599
+    },
+    {
+      "name": "Samsung 49-Inch CHG90 Curved Gaming Monitor",
+      "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with Quantum Dot (QLED) Technology. High refresh rate and ultra fast response time.",
+      "category": "electronics",
+      "quantity": 140,
+      "price": 999.99
+    },
+    {
+      "name": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket",
+      "description": "Detachable Liner Fabric: Warm Fleece. Adjustable and Detachable Hood, adjustable cuff to prevent wind and water, for a comfortable fit.",
+      "category": "women's clothing",
+      "quantity": 235,
+      "price": 56.99
+    },
+    {
+      "name": "Lock and Love Women's Faux Leather Jacket",
+      "description": "Faux leather material for style and comfort. Two pockets, hooded denim style with detail stitching. Hand wash only.",
+      "category": "women's clothing",
+      "quantity": 340,
+      "price": 29.95
+    },
+    {
+      "name": "Rain Jacket Women Windbreaker Striped Climbing",
+      "description": "Lightweight and perfect for trips or casual wear. Adjustable drawstring waist design, button and zipper front closure.",
+      "category": "women's clothing",
+      "quantity": 679,
+      "price": 39.99
+    },
+    {
+      "name": "MBJ Women's Solid Short Sleeve Boat Neck V",
+      "description": "Lightweight fabric with great stretch for comfort. Ribbed on sleeves and neckline, double stitching on bottom hem.",
+      "category": "women's clothing",
+      "quantity": 130,
+      "price": 9.85
+    },
+    {
+      "name": "Opna Women's Short Sleeve Moisture T-Shirt",
+      "description": "100% Polyester, Machine wash. Soft Lightweight Fabric with moisture wicking properties. V-neck collar, delivers a sleek silhouette.",
+      "category": "women's clothing",
+      "quantity": 146,
+      "price": 7.95
+    },
+    {
+      "name": "DANVOUY Womens T Shirt Casual Cotton Short",
+      "description": "95% Cotton, 5% Spandex. Features: Casual, Short Sleeve, Letter Print, V-Neck. Suitable for different occasions and seasons.",
+      "category": "women's clothing",
+      "quantity": 145,
+      "price": 12.99
+    }
+  ]
+  
