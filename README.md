@@ -83,7 +83,7 @@ Pour exécuter les tests avec Postman, ouvrez l'application Postman et importer 
 
 V2 : 
    ```bash
-      npm run start
+      npm run test
    ```
 
 Puisque je n'ai pas réussi à faire les tests avec artillery avec https, il faut modifier .en afin d'y ajouter:
@@ -92,4 +92,8 @@ Puisque je n'ai pas réussi à faire les tests avec artillery avec https, il fau
 PERF=true
 ```
 
-Ensuite, lancer le serveur avec npm start et lancer les tests de performance avec npx artillery run ./tests/test-load.yaml
+Ensuite, lancer le serveur avec npm start et lancer les tests de performance avec:
+
+```bash
+npx artillery run ./tests/test-load.yaml
+```
