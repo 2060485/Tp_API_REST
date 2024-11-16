@@ -51,20 +51,23 @@ JWT_SECRET=votre_secret_jwt
 Voici la structure des dossiers du projet :
 
 ```
-├── certs                   # Clés permettant une connexion HTTPS
-├── logs                    # Logs des opérations /GET /POST /PUT /DELETE
+├── certs                                 # Clés permettant une connexion HTTPS
+├── logs                                  # Logs des opérations /GET /POST /PUT /DELETE
 ├── src/
-│   ├── controllers/        # Contrôleurs Express pour gérer les routes
-│   ├── interfaces/         # Interfaces TypeScript
-│   ├── middlewares/        # Middlewares Express
-│   ├── models/             # Modèles de données
-│   ├── routes/             # Définition des routes Express
-│   ├── services/           # Services pour la logique métier
-│   ├── utils/              # Utilitaires du projet
-│   ├── app.ts              # Configuration de l'application Express
-│   ├── server.ts           # Point d'entrée pour démarrer le serveur
-├── package.json            # Fichier de configuration des dépendances et scripts
-├── tsconfig.json           # Configuration de TypeScript
+│   ├── controllers/                      # Contrôleurs Express pour gérer les routes
+│   ├── interfaces/                       # Interfaces TypeScript
+│   ├── middlewares/                      # Middlewares Express
+│   ├── models/                           # Modèles de données
+│   ├── routes/                           # Définition des routes Express
+│   ├── services/                         # Services pour la logique métier
+│   ├── utils/                            # Utilitaires du projet
+│   ├── app.ts                            # Configuration de l'application Express
+├── tests/
+│   ├── test-load.yaml                    # Test de performance
+│   ├── test.ts                           # Tests de fonctionalité et sécurité
+│   ├── TestsAPI.postman_collection.json  # Tests postman
+├── package.json                          # Fichier de configuration des dépendances et scripts
+├── tsconfig.json                         # Configuration de TypeScript
 ```
 
 ## Démarrage
