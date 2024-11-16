@@ -213,6 +213,6 @@ const productController = new ProductController();
 router.get('/',verifyToken, productController.getProducts);
 router.post('/',verifyToken,verifyRole, productController.postProduct);
 router.put('/:id',verifyToken, productController.putProducts);
-/*router.delete('/:id',verifyToken,verifyRole, productController.deleteProducts);*/
+router.delete('/:id',verifyToken,verifyRole, productController.deleteProducts);
 
 export default router;

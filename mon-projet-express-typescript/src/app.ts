@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
-import authRoutes from './routes/auth.route'
+import http from 'http';
 import productRoutes from './routes/product.route';
+import authRoutes from './routes/auth.route';
 import productRoutesV2 from './routes/product_V2.route';
 import { errorMiddleware } from './middlewares/error.middleware';
 import swaggerJsdoc from 'swagger-jsdoc';
@@ -11,8 +12,6 @@ import { config } from './config/config';
 import session from 'express-session';
 import fs from 'fs';
 import mongoose from 'mongoose';
-
-
 
 const app = express();
 // Middleware de parsing du JSON
@@ -76,6 +75,7 @@ try{
 app.use(errorMiddleware);
 
 const httpApp = https.createServer(certificatOptions, app);
+
 
 export default httpApp;
 

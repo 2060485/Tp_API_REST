@@ -82,10 +82,9 @@ export class ProductController {
         
     }
 
-    /*public async deleteProducts(req: Request, res: Response): Promise<void> {
-        const data = await fs.readFile('./src/data/products.json', 'utf-8');
-        const productList = JSON.parse(data);
-        const id = parseInt(req.params.id);
+    public async deleteProducts(req: Request, res: Response): Promise<void> {
+        const productList = await Product.find();
+        const id = req.params.id;
         let found = false
 
         for (let index = 0; index < productList.length; index++) {
@@ -97,7 +96,7 @@ export class ProductController {
             }
         }
         if (found) {
-            fs.writeFile('./src/data/products.json', JSON.stringify(productList, null, 2))
+            await Product.findByIdAndDelete(id)
             res.status(204).send()
             logger.info('DELETE /v1/products'+id+' - deleteProducts');
         }else{
@@ -105,5 +104,5 @@ export class ProductController {
             logger.info('DELETE /v1/products'+id+' - Produit inexistant');
         }
         
-    }*/
+    }
 }
