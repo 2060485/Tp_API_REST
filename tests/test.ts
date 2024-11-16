@@ -1,7 +1,8 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test, afterAll } from '@jest/globals';
 import supertest from 'supertest';
 import httpApp from '../src/app';
 import Product from '../src/models/product_V2.model';
+import mongoose from 'mongoose';
 
 const agent = supertest.agent(httpApp);
 let token = "";
@@ -226,4 +227,8 @@ describe('SQL injections test', () => {
     expect(response.status).not.toBe(500);
     expect(response.status).toBe(400);
   });
+});
+
+afterAll(async () => {
+  await mongoose.connection.close();
 });

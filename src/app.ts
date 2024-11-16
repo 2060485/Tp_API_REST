@@ -59,9 +59,11 @@ app.use('/v1/products', productRoutes);
 app.use('/v2/products', productRoutesV2);
 app.use('/v1/users', authRoutes);
 
-fetch('https://fakestoreapi.com/products')
-.then(res=>res.json())
-.then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
+if(config.nodeEnv!="test"){
+  fetch('https://fakestoreapi.com/products')
+  .then(res=>res.json())
+  .then(json=>fs.writeFileSync('./src/data/products.json', JSON.stringify(json, null, 2)))
+}
 
 const uri = `mongodb+srv://420-514_A24:Str0ng_P%40ssw0rd_420-514@tp.ek83z.mongodb.net/${config.nodeEnv}`;            
 
