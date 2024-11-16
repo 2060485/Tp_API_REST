@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main        # Déclenche le pipeline sur un push vers la branche principale
+      - dev        # Déclenche le pipeline sur un push vers la branche principale
   pull_request:
     branches:
       - main        # Déclenche le pipeline sur une PR vers la branche principale
