@@ -89,7 +89,7 @@ V2 :
       npm run test
    ```
 
-Puisque je n'ai pas réussi à faire les tests avec artillery avec https, il faut modifier .en afin d'y ajouter:
+Puisque je n'ai pas réussi à faire les tests avec artillery avec https, il faut modifier .env afin d'y ajouter:
 
 ```bash
 PERF=true
