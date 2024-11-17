@@ -17,8 +17,7 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
 
    ```bash
    git clone https://github.com/2060485/Tp_API_REST.git
-   cd mon-projet-express-typescript
-
+   cd Tp_API_REST
    ```
 
 2. Installez les dépendances du projet :
